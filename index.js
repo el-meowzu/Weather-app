@@ -1,17 +1,17 @@
 import express from "express"
 import axios from "axios";
 import cors from "cors";
-import 'dotenv/config';  // To load the environment variables
+import 'dotenv/config';  
 
 const app = express();
-const PORT = 3000; // Choose any port
+const PORT = 3000; 
 
-app.use(cors()); // Enable CORS to allow requests from your frontend
+app.use(cors()); 
 
-// Endpoint to fetch weather data
+
 app.get('/weather', async (req, res) => {
-  const { location } = req.query;  // Read location from query params
-  const apiKey = process.env.REACT_APP_WEATHER_API_KEY;  // Your secret API key
+  const { location } = req.query;  
+  const apiKey = process.env.REACT_APP_WEATHER_API_KEY;  
 
   if (!location) {
     return res.status(400).json({ error: "Location is required" });
@@ -21,7 +21,7 @@ app.get('/weather', async (req, res) => {
     const response = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`
     );
-    res.json(response.data);  // Send back the weather data
+    res.json(response.data);  
   } catch (error) {
     res.status(500).json({ error: "Error fetching weather data" });
   }
