@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     if (query) {  
-      axios.get(`http://localhost:3000/weather?location=${query}`)
+      axios.get(`/api/weather?location=${query}`)
         .then((response) => {
           setData(response.data);
         })
@@ -25,15 +25,15 @@ function App() {
     }
   };
 
-  let backgroundImage = './src/assets/default.webp'; 
+  let backgroundImage = '../public/assets/default.webp'; 
 
   if (data.weather) {
     if (data.weather[0].main === "Clouds") {
-      backgroundImage = './src/assets/cloud.webp';
+      backgroundImage = '../public/assets/cloud.webp';
     } else if (data.weather[0].main === "Clear") {
-      backgroundImage = './src/assets/sunny.webp';
+      backgroundImage = '../public/assets/sunny.webp';
     } else if (data.weather[0].main === "Rain"){
-      backgroundImage = './src/assets/rain.webp';
+      backgroundImage = '../public/assets/rain.webp';
     }
   }
 
