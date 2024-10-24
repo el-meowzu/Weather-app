@@ -25,15 +25,15 @@ function App() {
     }
   };
 
-  let backgroundImage = '../public/assets/default.webp'; 
+  let backgroundImage = '/assets/default.webp'; 
 
   if (data.weather) {
     if (data.weather[0].main === "Clouds") {
-      backgroundImage = '../public/assets/cloud.webp';
+      backgroundImage = '/assets/cloud.webp';
     } else if (data.weather[0].main === "Clear") {
-      backgroundImage = '../public/assets/sunny.webp';
+      backgroundImage = '/assets/sunny.webp';
     } else if (data.weather[0].main === "Rain"){
-      backgroundImage = '../public/assets/rain.webp';
+      backgroundImage = '/assets/rain.webp';
     }
   }
 
